@@ -68,10 +68,17 @@ function base16-{{scheme-slug}} -d "base16 {{scheme-name}} theme"
       __put_template_var 10 $color_foreground
       if [ "$BASE16_SHELL_SET_BACKGROUND" != false ]
         __put_template_var 11 $color_background
-        if string match -q -- 'rxvt*' $TERM
+        if string match -q -- ')rxvt*' $TERM
           __put_template_var 708 $color_background # internal border (rxvt)
         end
       end
       __put_template_custom 12 ";7" # cursor (reverse video)
     end
+
+    set -gx fish_color_autosuggestion $color08 --background=brblack
+    set -gx fish_pager_color_description $color16 --background=yellow
+
+    __base16_fish_shell_set_background "{{base00-hex-r}}" "{{base00-hex-g}}" "{{base00-hex-b}}"
+    __base16_fish_shell_create_vimrc_background {{scheme-slug}}
+    set -U {{scheme-slug}}
 end
