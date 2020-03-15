@@ -3,6 +3,11 @@
 # {{scheme-name}} scheme by {{scheme-author}}
 
 function base16-{{scheme-slug}} -d "base16 {{scheme-name}} theme"
+    set options (fish_opt --short=t --long=test)
+    argparse $options -- $argv
+    set padded_seq_values (seq -w 0 21)
+
+    # colors
     set color00 "{{base00-hex-r}}/{{base00-hex-g}}/{{base00-hex-b}}" # Base 00 - Black
     set color01 "{{base08-hex-r}}/{{base08-hex-g}}/{{base08-hex-b}}" # Base 08 - Red
     set color02 "{{base0B-hex-r}}/{{base0B-hex-g}}/{{base0B-hex-b}}" # Base 0B - Green
@@ -26,7 +31,7 @@ function base16-{{scheme-slug}} -d "base16 {{scheme-name}} theme"
     set color20 "{{base04-hex-r}}/{{base04-hex-g}}/{{base04-hex-b}}" # Base 04
     set color21 "{{base06-hex-r}}/{{base06-hex-g}}/{{base06-hex-b}}" # Base 06
     set color_foreground "{{base05-hex-r}}/{{base05-hex-g}}/{{base05-hex-b}}" # Base 05
-    color_background "{{base00-hex-r}}/{{base00-hex-g}}/{{base00-hex-b}}" # Base 00
+    set color_background "{{base00-hex-r}}/{{base00-hex-g}}/{{base00-hex-b}}" # Base 00
 
     # 16 color space
     __put_template 0  $color00
@@ -55,30 +60,41 @@ function base16-{{scheme-slug}} -d "base16 {{scheme-name}} theme"
     __put_template 21 $color21
 
     # foreground / background / cursor color
-    if [ -n "$ITERM_SESSION_ID" ]
+    if test -n "$ITERM_SESSION_ID"
       # iTerm2 proprietary escape codes
-      __put_template_custom Pg A6AFB8 # foreground
-      __put_template_custom Ph 18262F # background
-      __put_template_custom Pi A6AFB8 # bold color
-      __put_template_custom Pj 586875 # selection color
-      __put_template_custom Pk A6AFB8 # selected text color
-      __put_template_custom Pl A6AFB8 # cursor
-      __put_template_custom Pm 18262F # cursor text
+      __put_template_custom Pg {{base05-hex}} # foreground
+      __put_template_custom Ph {{base00-hex}} # background
+      __put_template_custom Pi {{base05-hex}} # bold color
+      __put_template_custom Pj {{base02-hex}} # selection color
+      __put_template_custom Pk {{base05-hex}} # selected text color
+      __put_template_custom Pl {{base05-hex}} # cursor
+      __put_template_custom Pm {{base00-hex}} # cursor text
+
     else
       __put_template_var 10 $color_foreground
-      if [ "$BASE16_SHELL_SET_BACKGROUND" != false ]
+      if test "$BASE16_SHELL_SET_BACKGROUND" != false
         __put_template_var 11 $color_background
-        if string match -q -- ')rxvt*' $TERM
+        if string match -q -- '*rxvt*' $TERM
           __put_template_var 708 $color_background # internal border (rxvt)
         end
       end
       __put_template_custom 12 ";7" # cursor (reverse video)
     end
 
-    set -gx fish_color_autosuggestion $color08 --background=brblack
-    set -gx fish_pager_color_description $color16 --background=yellow
+    set -gx fish_color_autosuggestion "{{base03-hex-r}}{{base03-hex-g}}{{base03-hex-b}}" brblack
+    set -gx fish_pager_color_description "{{base09-hex-r}}{{base09-hex-g}}{{base09-hex-b}}" yellow
 
     __base16_fish_shell_set_background "{{base00-hex-r}}" "{{base00-hex-g}}" "{{base00-hex-b}}"
     __base16_fish_shell_create_vimrc_background {{scheme-slug}}
-    set -U {{scheme-slug}}
+    set -U base16_fish_theme {{scheme-slug}}
+
+    if test -n "$_flag_t"
+        set base16_colors
+        for seq_value in $padded_seq_values
+            set base16_colors $base16_colors $seq_value
+        end
+        set base16_colors $base16_colors $color_foreground $color_background
+
+        __base16_fish_shell_color_test $base16_colors
+    end
 end

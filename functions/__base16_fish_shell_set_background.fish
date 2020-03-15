@@ -3,7 +3,7 @@ function __base16_fish_shell_set_background -d "base16-fish-shell private functi
     set green $argv[2]
     set blue $argv[3]
 
-    set luma (math 0.2126 * $red + 0.7152 * $green + 0.0722 * $blue)
+    set luma (math 0.2126 \* 0x$red + 0.7152 \* 0x$green + 0.0722 \* 0x$blue)
 
     # luma value range goes from 0 to 255
     # where 0 is darkest and 255 lightest
