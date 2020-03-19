@@ -29,9 +29,9 @@ Open a new shell and type `base16` followed by a tab to perform tab completion.
 
 ## Features
 
-Pure fish solution, no need to source bash functions.
-Sets one universal variable with the current theme, whenever a new interactive session is started a function in conf.d will apply the theme's function.
-Luma calculation, a global variable `base16_fish_shell_background` is set with the background. Possible values are `dark` or `light`
+* Pure fish solution, no need to source bash functions.
+* Sets one universal variable with the current theme, whenever a new interactive session is started a function in conf.d will apply the theme's function.
+* Luma calculation, a global variable `base16_fish_shell_background` is set with the background. Possible values are `dark` or `light`
 Base16-vim support
 
 ### Base16-Vim Users
@@ -58,6 +58,9 @@ To run the test just pass the flag `-t` or `--test` to any of the theme function
 ```fish
 base16-solarflare -t
 ```
+
+![Screenshot 2020-03-19 at 18 41 56](https://user-images.githubusercontent.com/2544673/77102790-50c07580-6a11-11ea-85e6-d88ba956d56d.png)
+
 
 ### Inverted blacks and whites
 
