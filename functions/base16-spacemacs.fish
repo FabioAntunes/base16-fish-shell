@@ -93,7 +93,7 @@ function base16-spacemacs -d "base16 Spacemacs theme"
         for seq_value in $padded_seq_values
             set base16_colors $base16_colors $seq_value
         end
-        set base16_colors $base16_colors $color_foreground $color_background
+        set base16_colors $base16_colors
 
         __base16_fish_shell_color_test $base16_colors
     end
