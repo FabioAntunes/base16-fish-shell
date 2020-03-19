@@ -1,37 +1,37 @@
 # base16-fish-shell (https://github.com/FabioAntunes/base16-fish-shell)
 # Inspired by base16-shell (https://github.com/chriskempson/base16-shell)
-# Nord scheme by arcticicestudio
+# darkmoss scheme by Gabriel Avanzi (https://github.com/avanzzzi)
 
-function base16-nord -d "base16 Nord theme"
+function base16-darkmoss -d "base16 darkmoss theme"
     set options (fish_opt --short=t --long=test)
     argparse $options -- $argv
     set padded_seq_values (seq -w 0 21)
 
     # colors
-    set color00 "2e/34/40" # Base 00 - Black
-    set color01 "bf/61/6a" # Base 08 - Red
-    set color02 "a3/be/8c" # Base 0B - Green
-    set color03 "eb/cb/8b" # Base 0A - Yellow
-    set color04 "81/a1/c1" # Base 0D - Blue
-    set color05 "b4/8e/ad" # Base 0E - Magenta
-    set color06 "88/c0/d0" # Base 0C - Cyan
-    set color07 "e5/e9/f0" # Base 05 - White
-    set color08 "4c/56/6a" # Base 03 - Bright Black
+    set color00 "17/1e/1f" # Base 00 - Black
+    set color01 "ff/46/58" # Base 08 - Red
+    set color02 "49/91/80" # Base 0B - Green
+    set color03 "fd/b1/1f" # Base 0A - Yellow
+    set color04 "49/80/91" # Base 0D - Blue
+    set color05 "9b/c0/c8" # Base 0E - Magenta
+    set color06 "66/d9/ef" # Base 0C - Cyan
+    set color07 "c7/c7/a5" # Base 05 - White
+    set color08 "55/5e/5f" # Base 03 - Bright Black
     set color09 $color01 # Base 08 - Bright Red
     set color10 $color02 # Base 0B - Bright Green
     set color11 $color03 # Base 0A - Bright Yellow
     set color12 $color04 # Base 0D - Bright Blue
     set color13 $color05 # Base 0E - Bright Magenta
     set color14 $color06 # Base 0C - Bright Cyan
-    set color15 "8f/bc/bb" # Base 07 - Bright White
-    set color16 "d0/87/70" # Base 09
-    set color17 "5e/81/ac" # Base 0F
-    set color18 "3b/42/52" # Base 01
-    set color19 "43/4c/5e" # Base 02
-    set color20 "d8/de/e9" # Base 04
-    set color21 "ec/ef/f4" # Base 06
-    set color_foreground "e5/e9/f0" # Base 05
-    set color_background "2e/34/40" # Base 00
+    set color15 "e1/ea/ef" # Base 07 - Bright White
+    set color16 "e6/db/74" # Base 09
+    set color17 "d2/7b/53" # Base 0F
+    set color18 "25/2c/2d" # Base 01
+    set color19 "37/3c/3d" # Base 02
+    set color20 "81/8f/80" # Base 04
+    set color21 "e3/e3/c8" # Base 06
+    set color_foreground "c7/c7/a5" # Base 05
+    set color_background "17/1e/1f" # Base 00
 
     # 16 color space
     __put_template 0  $color00
@@ -62,13 +62,13 @@ function base16-nord -d "base16 Nord theme"
     # foreground / background / cursor color
     if test -n "$ITERM_SESSION_ID"
       # iTerm2 proprietary escape codes
-      __put_template_custom Pg e5e9f0 # foreground
-      __put_template_custom Ph 2e3440 # background
-      __put_template_custom Pi e5e9f0 # bold color
-      __put_template_custom Pj 434c5e # selection color
-      __put_template_custom Pk e5e9f0 # selected text color
-      __put_template_custom Pl e5e9f0 # cursor
-      __put_template_custom Pm 2e3440 # cursor text
+      __put_template_custom Pg c7c7a5 # foreground
+      __put_template_custom Ph 171e1f # background
+      __put_template_custom Pi c7c7a5 # bold color
+      __put_template_custom Pj 373c3d # selection color
+      __put_template_custom Pk c7c7a5 # selected text color
+      __put_template_custom Pl c7c7a5 # cursor
+      __put_template_custom Pm 171e1f # cursor text
 
     else
       __put_template_var 10 $color_foreground
@@ -81,12 +81,12 @@ function base16-nord -d "base16 Nord theme"
       __put_template_custom 12 ";7" # cursor (reverse video)
     end
 
-    set -gx fish_color_autosuggestion "4c566a" brblack
-    set -gx fish_pager_color_description "d08770" yellow
+    set -gx fish_color_autosuggestion "555e5f" brblack
+    set -gx fish_pager_color_description "e6db74" yellow
 
-    __base16_fish_shell_set_background "2e" "34" "40"
-    __base16_fish_shell_create_vimrc_background nord
-    set -U base16_fish_theme nord
+    __base16_fish_shell_set_background "17" "1e" "1f"
+    __base16_fish_shell_create_vimrc_background darkmoss
+    set -U base16_fish_theme darkmoss
 
     if test -n "$_flag_t"
         set base16_colors

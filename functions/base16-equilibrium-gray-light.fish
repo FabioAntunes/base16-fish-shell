@@ -1,37 +1,37 @@
 # base16-fish-shell (https://github.com/FabioAntunes/base16-fish-shell)
 # Inspired by base16-shell (https://github.com/chriskempson/base16-shell)
-# Nord scheme by arcticicestudio
+# Equilibrium Gray Light scheme by Carlo Abelli
 
-function base16-nord -d "base16 Nord theme"
+function base16-equilibrium-gray-light -d "base16 Equilibrium Gray Light theme"
     set options (fish_opt --short=t --long=test)
     argparse $options -- $argv
     set padded_seq_values (seq -w 0 21)
 
     # colors
-    set color00 "2e/34/40" # Base 00 - Black
-    set color01 "bf/61/6a" # Base 08 - Red
-    set color02 "a3/be/8c" # Base 0B - Green
-    set color03 "eb/cb/8b" # Base 0A - Yellow
-    set color04 "81/a1/c1" # Base 0D - Blue
-    set color05 "b4/8e/ad" # Base 0E - Magenta
-    set color06 "88/c0/d0" # Base 0C - Cyan
-    set color07 "e5/e9/f0" # Base 05 - White
-    set color08 "4c/56/6a" # Base 03 - Bright Black
+    set color00 "f1/f1/f1" # Base 00 - Black
+    set color01 "d0/20/23" # Base 08 - Red
+    set color02 "63/72/00" # Base 0B - Green
+    set color03 "9d/6f/00" # Base 0A - Yellow
+    set color04 "00/73/b5" # Base 0D - Blue
+    set color05 "4e/66/b6" # Base 0E - Magenta
+    set color06 "00/7a/72" # Base 0C - Cyan
+    set color07 "47/47/47" # Base 05 - White
+    set color08 "77/77/77" # Base 03 - Bright Black
     set color09 $color01 # Base 08 - Bright Red
     set color10 $color02 # Base 0B - Bright Green
     set color11 $color03 # Base 0A - Bright Yellow
     set color12 $color04 # Base 0D - Bright Blue
     set color13 $color05 # Base 0E - Bright Magenta
     set color14 $color06 # Base 0C - Bright Cyan
-    set color15 "8f/bc/bb" # Base 07 - Bright White
-    set color16 "d0/87/70" # Base 09
-    set color17 "5e/81/ac" # Base 0F
-    set color18 "3b/42/52" # Base 01
-    set color19 "43/4c/5e" # Base 02
-    set color20 "d8/de/e9" # Base 04
-    set color21 "ec/ef/f4" # Base 06
-    set color_foreground "e5/e9/f0" # Base 05
-    set color_background "2e/34/40" # Base 00
+    set color15 "1b/1b/1b" # Base 07 - Bright White
+    set color16 "bf/3e/05" # Base 09
+    set color17 "c4/27/75" # Base 0F
+    set color18 "e2/e2/e2" # Base 01
+    set color19 "d4/d4/d4" # Base 02
+    set color20 "5e/5e/5e" # Base 04
+    set color21 "30/30/30" # Base 06
+    set color_foreground "47/47/47" # Base 05
+    set color_background "f1/f1/f1" # Base 00
 
     # 16 color space
     __put_template 0  $color00
@@ -62,13 +62,13 @@ function base16-nord -d "base16 Nord theme"
     # foreground / background / cursor color
     if test -n "$ITERM_SESSION_ID"
       # iTerm2 proprietary escape codes
-      __put_template_custom Pg e5e9f0 # foreground
-      __put_template_custom Ph 2e3440 # background
-      __put_template_custom Pi e5e9f0 # bold color
-      __put_template_custom Pj 434c5e # selection color
-      __put_template_custom Pk e5e9f0 # selected text color
-      __put_template_custom Pl e5e9f0 # cursor
-      __put_template_custom Pm 2e3440 # cursor text
+      __put_template_custom Pg 474747 # foreground
+      __put_template_custom Ph f1f1f1 # background
+      __put_template_custom Pi 474747 # bold color
+      __put_template_custom Pj d4d4d4 # selection color
+      __put_template_custom Pk 474747 # selected text color
+      __put_template_custom Pl 474747 # cursor
+      __put_template_custom Pm f1f1f1 # cursor text
 
     else
       __put_template_var 10 $color_foreground
@@ -81,12 +81,12 @@ function base16-nord -d "base16 Nord theme"
       __put_template_custom 12 ";7" # cursor (reverse video)
     end
 
-    set -gx fish_color_autosuggestion "4c566a" brblack
-    set -gx fish_pager_color_description "d08770" yellow
+    set -gx fish_color_autosuggestion "777777" brblack
+    set -gx fish_pager_color_description "bf3e05" yellow
 
-    __base16_fish_shell_set_background "2e" "34" "40"
-    __base16_fish_shell_create_vimrc_background nord
-    set -U base16_fish_theme nord
+    __base16_fish_shell_set_background "f1" "f1" "f1"
+    __base16_fish_shell_create_vimrc_background equilibrium-gray-light
+    set -U base16_fish_theme equilibrium-gray-light
 
     if test -n "$_flag_t"
         set base16_colors
