@@ -38,12 +38,12 @@ Base16-vim support
 
 Every time you run a base16 function it will update `~/.vimrc_background` file with the current colour scheme, you just need to source this file in your vimrc: i.e. (remove the base16colorspace line if not needed)
 
-    ```vimscript
-    if filereadable(expand("~/.vimrc_background"))
-      let base16colorspace=256
-      source ~/.vimrc_background
-    endif
-    ```
+```vimscript
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+```
 
 The script will also calculate the Luma of the background colour of each theme, setting your vim background to **light** or **dark** accordingly.
 
