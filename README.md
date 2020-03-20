@@ -21,7 +21,7 @@ omf install https://github.com/FabioAntunes/base16-fish-shell
 
 With [fisher](https://github.com/jorgebucaran/fisher)
 
-```fish
+```shell
 fisher add FabioAntunes/base16-fish-shell
 ```
 
@@ -38,7 +38,7 @@ Base16-vim support
 
 Every time you run a base16 function it will update `~/.vimrc_background` file with the current colour scheme, you just need to source this file in your vimrc: i.e. (remove the base16colorspace line if not needed)
 
-```vimscript
+```vim
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
@@ -55,7 +55,7 @@ Run the included colour test option and check that your colour assignments appea
 
 To run the test just pass the flag `-t` or `--test` to any of the theme functions. 
 
-```fish
+```shell
 base16-solarflare -t
 ```
 
