@@ -1,37 +1,37 @@
 # base16-fish-shell (https://github.com/FabioAntunes/base16-fish-shell)
 # Inspired by base16-shell (https://github.com/chriskempson/base16-shell)
-# Synth Midnight Terminal Dark scheme by Michaël Ball (http://github.com/michael-ball/)
+# Eva Dim scheme by kjakapat (https://github.com/kjakapat)
 
-function base16-synth-midnight-dark -d "base16 Synth Midnight Terminal Dark theme"
+function base16-eva-dim -d "base16 Eva Dim theme"
     set options (fish_opt --short=t --long=test)
     argparse $options -- $argv
     set padded_seq_values (seq -w 0 21)
 
     # colors
-    set color00 "05/06/08" # Base 00 - Black
-    set color01 "b5/3b/50" # Base 08 - Red
-    set color02 "06/ea/61" # Base 0B - Green
-    set color03 "c9/d3/64" # Base 0A - Yellow
-    set color04 "03/ae/ff" # Base 0D - Blue
-    set color05 "ea/5c/e2" # Base 0E - Magenta
-    set color06 "42/ff/f9" # Base 0C - Cyan
-    set color07 "c1/c3/c4" # Base 05 - White
-    set color08 "47/48/49" # Base 03 - Bright Black
+    set color00 "2a/3b/4d" # Base 00 - Black
+    set color01 "c4/67/6c" # Base 08 - Red
+    set color02 "5d/e5/61" # Base 0B - Green
+    set color03 "cf/d0/5d" # Base 0A - Yellow
+    set color04 "1a/e1/dc" # Base 0D - Blue
+    set color05 "9c/6c/d3" # Base 0E - Magenta
+    set color06 "4b/8f/77" # Base 0C - Cyan
+    set color07 "9f/a2/a6" # Base 05 - White
+    set color08 "55/79/9c" # Base 03 - Bright Black
     set color09 $color01 # Base 08 - Bright Red
     set color10 $color02 # Base 0B - Bright Green
     set color11 $color03 # Base 0A - Bright Yellow
     set color12 $color04 # Base 0D - Bright Blue
     set color13 $color05 # Base 0E - Bright Magenta
     set color14 $color06 # Base 0C - Bright Cyan
-    set color15 "dd/df/e0" # Base 07 - Bright White
-    set color16 "ea/77/0d" # Base 09
-    set color17 "cd/63/20" # Base 0F
-    set color18 "1a/1b/1c" # Base 01
-    set color19 "28/29/2a" # Base 02
-    set color20 "a3/a5/a6" # Base 04
-    set color21 "cf/d1/d2" # Base 06
-    set color_foreground "c1/c3/c4" # Base 05
-    set color_background "05/06/08" # Base 00
+    set color15 "ff/ff/ff" # Base 07 - Bright White
+    set color16 "ff/99/66" # Base 09
+    set color17 "bb/64/a9" # Base 0F
+    set color18 "3d/56/6f" # Base 01
+    set color19 "4b/69/88" # Base 02
+    set color20 "7e/90/a3" # Base 04
+    set color21 "d6/d7/d9" # Base 06
+    set color_foreground "9f/a2/a6" # Base 05
+    set color_background "2a/3b/4d" # Base 00
 
     # 16 color space
     __put_template 0  $color00
@@ -62,13 +62,13 @@ function base16-synth-midnight-dark -d "base16 Synth Midnight Terminal Dark them
     # foreground / background / cursor color
     if test -n "$ITERM_SESSION_ID"
       # iTerm2 proprietary escape codes
-      __put_template_custom Pg c1c3c4 # foreground
-      __put_template_custom Ph 050608 # background
-      __put_template_custom Pi c1c3c4 # bold color
-      __put_template_custom Pj 28292a # selection color
-      __put_template_custom Pk c1c3c4 # selected text color
-      __put_template_custom Pl c1c3c4 # cursor
-      __put_template_custom Pm 050608 # cursor text
+      __put_template_custom Pg 9fa2a6 # foreground
+      __put_template_custom Ph 2a3b4d # background
+      __put_template_custom Pi 9fa2a6 # bold color
+      __put_template_custom Pj 4b6988 # selection color
+      __put_template_custom Pk 9fa2a6 # selected text color
+      __put_template_custom Pl 9fa2a6 # cursor
+      __put_template_custom Pm 2a3b4d # cursor text
 
     else
       __put_template_var 10 $color_foreground
@@ -81,12 +81,12 @@ function base16-synth-midnight-dark -d "base16 Synth Midnight Terminal Dark them
       __put_template_custom 12 ";7" # cursor (reverse video)
     end
 
-    set -gx fish_color_autosuggestion "474849" brblack
-    set -gx fish_pager_color_description "ea770d" yellow
+    set -gx fish_color_autosuggestion "55799c" brblack
+    set -gx fish_pager_color_description "ff9966" yellow
 
-    __base16_fish_shell_set_background "05" "06" "08"
-    __base16_fish_shell_create_vimrc_background synth-midnight-dark
-    set -U base16_fish_theme synth-midnight-dark
+    __base16_fish_shell_set_background "2a" "3b" "4d"
+    __base16_fish_shell_create_vimrc_background eva-dim
+    set -U base16_fish_theme eva-dim
 
     if test -n "$_flag_t"
         set base16_colors

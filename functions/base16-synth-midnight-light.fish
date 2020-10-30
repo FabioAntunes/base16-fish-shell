@@ -1,37 +1,37 @@
 # base16-fish-shell (https://github.com/FabioAntunes/base16-fish-shell)
 # Inspired by base16-shell (https://github.com/chriskempson/base16-shell)
-# Synth Midnight Terminal Dark scheme by Michaël Ball (http://github.com/michael-ball/)
+# Synth Midnight Terminal Light scheme by Michaël Ball (http://github.com/michael-ball/)
 
-function base16-synth-midnight-dark -d "base16 Synth Midnight Terminal Dark theme"
+function base16-synth-midnight-light -d "base16 Synth Midnight Terminal Light theme"
     set options (fish_opt --short=t --long=test)
     argparse $options -- $argv
     set padded_seq_values (seq -w 0 21)
 
     # colors
-    set color00 "05/06/08" # Base 00 - Black
+    set color00 "dd/df/e0" # Base 00 - Black
     set color01 "b5/3b/50" # Base 08 - Red
     set color02 "06/ea/61" # Base 0B - Green
     set color03 "c9/d3/64" # Base 0A - Yellow
     set color04 "03/ae/ff" # Base 0D - Blue
     set color05 "ea/5c/e2" # Base 0E - Magenta
     set color06 "42/ff/f9" # Base 0C - Cyan
-    set color07 "c1/c3/c4" # Base 05 - White
-    set color08 "47/48/49" # Base 03 - Bright Black
+    set color07 "28/29/2a" # Base 05 - White
+    set color08 "a3/a5/a6" # Base 03 - Bright Black
     set color09 $color01 # Base 08 - Bright Red
     set color10 $color02 # Base 0B - Bright Green
     set color11 $color03 # Base 0A - Bright Yellow
     set color12 $color04 # Base 0D - Bright Blue
     set color13 $color05 # Base 0E - Bright Magenta
     set color14 $color06 # Base 0C - Bright Cyan
-    set color15 "dd/df/e0" # Base 07 - Bright White
+    set color15 "05/06/08" # Base 07 - Bright White
     set color16 "ea/77/0d" # Base 09
     set color17 "cd/63/20" # Base 0F
-    set color18 "1a/1b/1c" # Base 01
-    set color19 "28/29/2a" # Base 02
-    set color20 "a3/a5/a6" # Base 04
-    set color21 "cf/d1/d2" # Base 06
-    set color_foreground "c1/c3/c4" # Base 05
-    set color_background "05/06/08" # Base 00
+    set color18 "cf/d1/d2" # Base 01
+    set color19 "c1/c3/c4" # Base 02
+    set color20 "47/48/49" # Base 04
+    set color21 "1a/1b/1c" # Base 06
+    set color_foreground "28/29/2a" # Base 05
+    set color_background "dd/df/e0" # Base 00
 
     # 16 color space
     __put_template 0  $color00
@@ -62,13 +62,13 @@ function base16-synth-midnight-dark -d "base16 Synth Midnight Terminal Dark them
     # foreground / background / cursor color
     if test -n "$ITERM_SESSION_ID"
       # iTerm2 proprietary escape codes
-      __put_template_custom Pg c1c3c4 # foreground
-      __put_template_custom Ph 050608 # background
-      __put_template_custom Pi c1c3c4 # bold color
-      __put_template_custom Pj 28292a # selection color
-      __put_template_custom Pk c1c3c4 # selected text color
-      __put_template_custom Pl c1c3c4 # cursor
-      __put_template_custom Pm 050608 # cursor text
+      __put_template_custom Pg 28292a # foreground
+      __put_template_custom Ph dddfe0 # background
+      __put_template_custom Pi 28292a # bold color
+      __put_template_custom Pj c1c3c4 # selection color
+      __put_template_custom Pk 28292a # selected text color
+      __put_template_custom Pl 28292a # cursor
+      __put_template_custom Pm dddfe0 # cursor text
 
     else
       __put_template_var 10 $color_foreground
@@ -81,12 +81,12 @@ function base16-synth-midnight-dark -d "base16 Synth Midnight Terminal Dark them
       __put_template_custom 12 ";7" # cursor (reverse video)
     end
 
-    set -gx fish_color_autosuggestion "474849" brblack
+    set -gx fish_color_autosuggestion "a3a5a6" brblack
     set -gx fish_pager_color_description "ea770d" yellow
 
-    __base16_fish_shell_set_background "05" "06" "08"
-    __base16_fish_shell_create_vimrc_background synth-midnight-dark
-    set -U base16_fish_theme synth-midnight-dark
+    __base16_fish_shell_set_background "dd" "df" "e0"
+    __base16_fish_shell_create_vimrc_background synth-midnight-light
+    set -U base16_fish_theme synth-midnight-light
 
     if test -n "$_flag_t"
         set base16_colors
