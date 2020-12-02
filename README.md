@@ -22,7 +22,7 @@ omf install https://github.com/FabioAntunes/base16-fish-shell
 With [fisher](https://github.com/jorgebucaran/fisher)
 
 ```shell
-fisher add FabioAntunes/base16-fish-shell
+fisher install FabioAntunes/base16-fish-shell
 ```
 
 Open a new shell and type `base16` followed by a tab to perform tab completion.
