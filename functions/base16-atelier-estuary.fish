@@ -5,7 +5,6 @@
 function base16-atelier-estuary -d "base16 Atelier Estuary theme"
     set options (fish_opt --short=t --long=test)
     argparse $options -- $argv
-    set padded_seq_values (seq -w 0 21)
 
     # colors
     set color00 "22/22/1b" # Base 00 - Black
@@ -61,40 +60,66 @@ function base16-atelier-estuary -d "base16 Atelier Estuary theme"
 
     # foreground / background / cursor color
     if test -n "$ITERM_SESSION_ID"
-      # iTerm2 proprietary escape codes
-      __put_template_custom Pg 929181 # foreground
-      __put_template_custom Ph 22221b # background
-      __put_template_custom Pi 929181 # bold color
-      __put_template_custom Pj 5f5e4e # selection color
-      __put_template_custom Pk 929181 # selected text color
-      __put_template_custom Pl 929181 # cursor
-      __put_template_custom Pm 22221b # cursor text
+        # iTerm2 proprietary escape codes
+        __put_template_custom Pg 929181 # foreground
+        __put_template_custom Ph 22221b # background
+        __put_template_custom Pi 929181 # bold color
+        __put_template_custom Pj 5f5e4e # selection color
+        __put_template_custom Pk 929181 # selected text color
+        __put_template_custom Pl 929181 # cursor
+        __put_template_custom Pm 22221b # cursor text
 
     else
-      __put_template_var 10 $color_foreground
-      if test "$BASE16_SHELL_SET_BACKGROUND" != false
-        __put_template_var 11 $color_background
-        if string match -q -- '*rxvt*' $TERM
-          __put_template_var 708 $color_background # internal border (rxvt)
+        __put_template_var 10 $color_foreground
+        if test "$BASE16_SHELL_SET_BACKGROUND" != false
+            __put_template_var 11 $color_background
+            if string match -q -- '*rxvt*' $TERM
+                __put_template_var 708 $color_background # internal border (rxvt)
+            end
         end
-      end
-      __put_template_custom 12 ";7" # cursor (reverse video)
+        __put_template_custom 12 ";7" # cursor (reverse video)
     end
 
-    set -gx fish_color_autosuggestion "6c6b5a" brblack
-    set -gx fish_pager_color_description "ae7313" yellow
+    if test -z $base16_fish_shell_disable_prompt_colors
+        set -gx fish_color_normal normal
+        set -gx fish_color_command "36a166" blue
+        set -gx fish_color_quote "7d9726" green
+        set -gx fish_color_redirection "a5980d" yellow
+        set -gx fish_color_end "5b9d48" cyan
+        set -gx fish_color_error "ba6236" red
+        set -gx fish_color_param "e7e6df" cyan
+        set -gx fish_color_comment "6c6b5a" brblack
+        set -gx fish_color_match --background=brblue
+        set -gx fish_color_selection "929181" white --bold --background=brblack
+        set -gx fish_color_search_match "a5980d" bryellow --background=brblack
+        set -gx fish_color_history_current --bold
+        set -gx fish_color_operator "5b9d48" cyan
+        set -gx fish_color_escape "5b9d48" cyan
+        set -gx fish_color_cwd "7d9726" green
+        set -gx fish_color_cwd_root "ba6236" red
+        set -gx fish_color_valid_path --underline
+        set -gx fish_color_autosuggestion "6c6b5a" brblack
+        set -gx fish_color_user "7d9726" brgreen
+        set -gx fish_color_host normal
+        set -gx fish_color_cancel -r
+        set -gx fish_pager_color_completion normal
+        set -gx fish_pager_color_description "a5980d" yellow
+        set -gx fish_pager_color_prefix "929181" white --bold --underline
+        set -gx fish_pager_color_progress "f4f3ec" brwhite --background=cyan
+    end
 
     __base16_fish_shell_set_background "22" "22" "1b"
     __base16_fish_shell_create_vimrc_background atelier-estuary
     set -U base16_fish_theme atelier-estuary
 
     if test -n "$_flag_t"
-        set base16_colors
+        set base16_colors_hex
+        set padded_seq_values (seq -w 0 21)
         for seq_value in $padded_seq_values
-            set base16_colors $base16_colors $seq_value
+            set -l color "color$seq_value"
+            set base16_colors_hex $base16_colors_hex (string replace -a / "" $$color)
         end
-        set base16_colors $base16_colors
 
-        __base16_fish_shell_color_test $base16_colors
+        __base16_fish_shell_color_test $base16_colors_hex
     end
 end

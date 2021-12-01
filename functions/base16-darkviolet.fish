@@ -5,7 +5,6 @@
 function base16-darkviolet -d "base16 Dark Violet theme"
     set options (fish_opt --short=t --long=test)
     argparse $options -- $argv
-    set padded_seq_values (seq -w 0 21)
 
     # colors
     set color00 "00/00/00" # Base 00 - Black
@@ -61,40 +60,66 @@ function base16-darkviolet -d "base16 Dark Violet theme"
 
     # foreground / background / cursor color
     if test -n "$ITERM_SESSION_ID"
-      # iTerm2 proprietary escape codes
-      __put_template_custom Pg b08ae6 # foreground
-      __put_template_custom Ph 000000 # background
-      __put_template_custom Pi b08ae6 # bold color
-      __put_template_custom Pj 432d59 # selection color
-      __put_template_custom Pk b08ae6 # selected text color
-      __put_template_custom Pl b08ae6 # cursor
-      __put_template_custom Pm 000000 # cursor text
+        # iTerm2 proprietary escape codes
+        __put_template_custom Pg b08ae6 # foreground
+        __put_template_custom Ph 000000 # background
+        __put_template_custom Pi b08ae6 # bold color
+        __put_template_custom Pj 432d59 # selection color
+        __put_template_custom Pk b08ae6 # selected text color
+        __put_template_custom Pl b08ae6 # cursor
+        __put_template_custom Pm 000000 # cursor text
 
     else
-      __put_template_var 10 $color_foreground
-      if test "$BASE16_SHELL_SET_BACKGROUND" != false
-        __put_template_var 11 $color_background
-        if string match -q -- '*rxvt*' $TERM
-          __put_template_var 708 $color_background # internal border (rxvt)
+        __put_template_var 10 $color_foreground
+        if test "$BASE16_SHELL_SET_BACKGROUND" != false
+            __put_template_var 11 $color_background
+            if string match -q -- '*rxvt*' $TERM
+                __put_template_var 708 $color_background # internal border (rxvt)
+            end
         end
-      end
-      __put_template_custom 12 ";7" # cursor (reverse video)
+        __put_template_custom 12 ";7" # cursor (reverse video)
     end
 
-    set -gx fish_color_autosuggestion "593380" brblack
-    set -gx fish_pager_color_description "bb66cc" yellow
+    if test -z $base16_fish_shell_disable_prompt_colors
+        set -gx fish_color_normal normal
+        set -gx fish_color_command "4136d9" blue
+        set -gx fish_color_quote "4595e6" green
+        set -gx fish_color_redirection "f29df2" yellow
+        set -gx fish_color_end "40dfff" cyan
+        set -gx fish_color_error "a82ee6" red
+        set -gx fish_color_param "9045e6" cyan
+        set -gx fish_color_comment "593380" brblack
+        set -gx fish_color_match --background=brblue
+        set -gx fish_color_selection "b08ae6" white --bold --background=brblack
+        set -gx fish_color_search_match "f29df2" bryellow --background=brblack
+        set -gx fish_color_history_current --bold
+        set -gx fish_color_operator "40dfff" cyan
+        set -gx fish_color_escape "40dfff" cyan
+        set -gx fish_color_cwd "4595e6" green
+        set -gx fish_color_cwd_root "a82ee6" red
+        set -gx fish_color_valid_path --underline
+        set -gx fish_color_autosuggestion "593380" brblack
+        set -gx fish_color_user "4595e6" brgreen
+        set -gx fish_color_host normal
+        set -gx fish_color_cancel -r
+        set -gx fish_pager_color_completion normal
+        set -gx fish_pager_color_description "f29df2" yellow
+        set -gx fish_pager_color_prefix "b08ae6" white --bold --underline
+        set -gx fish_pager_color_progress "a366ff" brwhite --background=cyan
+    end
 
     __base16_fish_shell_set_background "00" "00" "00"
     __base16_fish_shell_create_vimrc_background darkviolet
     set -U base16_fish_theme darkviolet
 
     if test -n "$_flag_t"
-        set base16_colors
+        set base16_colors_hex
+        set padded_seq_values (seq -w 0 21)
         for seq_value in $padded_seq_values
-            set base16_colors $base16_colors $seq_value
+            set -l color "color$seq_value"
+            set base16_colors_hex $base16_colors_hex (string replace -a / "" $$color)
         end
-        set base16_colors $base16_colors
 
-        __base16_fish_shell_color_test $base16_colors
+        __base16_fish_shell_color_test $base16_colors_hex
     end
 end
