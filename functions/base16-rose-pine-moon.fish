@@ -1,6 +1,6 @@
 # base16-fish-shell (https://github.com/FabioAntunes/base16-fish-shell)
 # Inspired by base16-shell (https://github.com/chriskempson/base16-shell)
-# Rosé Pine Moon scheme by Emilia Dunfelt &lt;sayhi@dunfelt.se&gt;
+# Rosé Pine Moon scheme by Emilia Dunfelt &lt;edun@dunfelt.se&gt;
 
 function base16-rose-pine-moon -d "base16 Rosé Pine Moon theme"
     set options (fish_opt --short=t --long=test)
@@ -8,27 +8,27 @@ function base16-rose-pine-moon -d "base16 Rosé Pine Moon theme"
 
     # colors
     set color00 "23/21/36" # Base 00 - Black
-    set color01 "ec/eb/f0" # Base 08 - Red
-    set color02 "ea/9a/97" # Base 0B - Green
-    set color03 "f6/c1/77" # Base 0A - Yellow
-    set color04 "9c/cf/d8" # Base 0D - Blue
-    set color05 "c4/a7/e7" # Base 0E - Magenta
-    set color06 "3e/8f/b0" # Base 0C - Cyan
+    set color01 "eb/6f/92" # Base 08 - Red
+    set color02 "3e/8f/b0" # Base 0B - Green
+    set color03 "ea/9a/97" # Base 0A - Yellow
+    set color04 "c4/a7/e7" # Base 0D - Blue
+    set color05 "f6/c1/77" # Base 0E - Magenta
+    set color06 "9c/cf/d8" # Base 0C - Cyan
     set color07 "e0/de/f4" # Base 05 - White
-    set color08 "59/54/6d" # Base 03 - Bright Black
+    set color08 "6e/6a/86" # Base 03 - Bright Black
     set color09 $color01 # Base 08 - Bright Red
     set color10 $color02 # Base 0B - Bright Green
     set color11 $color03 # Base 0A - Bright Yellow
     set color12 $color04 # Base 0D - Bright Blue
     set color13 $color05 # Base 0E - Bright Magenta
     set color14 $color06 # Base 0C - Bright Cyan
-    set color15 "d9/d7/e1" # Base 07 - Bright White
-    set color16 "eb/6f/92" # Base 09
-    set color17 "b9/b9/bc" # Base 0F
+    set color15 "56/52/6e" # Base 07 - Bright White
+    set color16 "f6/c1/77" # Base 09
+    set color17 "56/52/6e" # Base 0F
     set color18 "2a/27/3f" # Base 01
     set color19 "39/35/52" # Base 02
-    set color20 "81/7c/9c" # Base 04
-    set color21 "f5/f5/f7" # Base 06
+    set color20 "90/8c/aa" # Base 04
+    set color21 "e0/de/f4" # Base 06
     set color_foreground "e0/de/f4" # Base 05
     set color_background "23/21/36" # Base 00
 
@@ -82,30 +82,30 @@ function base16-rose-pine-moon -d "base16 Rosé Pine Moon theme"
 
     if test -z $base16_fish_shell_disable_prompt_colors
         set -gx fish_color_normal normal
-        set -gx fish_color_command "9ccfd8" blue
-        set -gx fish_color_quote "ea9a97" green
-        set -gx fish_color_redirection "f6c177" yellow
-        set -gx fish_color_end "3e8fb0" cyan
-        set -gx fish_color_error "ecebf0" red
-        set -gx fish_color_param "f5f5f7" cyan
-        set -gx fish_color_comment "59546d" brblack
+        set -gx fish_color_command "c4a7e7" blue
+        set -gx fish_color_quote "3e8fb0" green
+        set -gx fish_color_redirection "ea9a97" yellow
+        set -gx fish_color_end "9ccfd8" cyan
+        set -gx fish_color_error "eb6f92" red
+        set -gx fish_color_param "e0def4" cyan
+        set -gx fish_color_comment "6e6a86" brblack
         set -gx fish_color_match --background=brblue
         set -gx fish_color_selection "e0def4" white --bold --background=brblack
-        set -gx fish_color_search_match "f6c177" bryellow --background=brblack
+        set -gx fish_color_search_match "ea9a97" bryellow --background=brblack
         set -gx fish_color_history_current --bold
-        set -gx fish_color_operator "3e8fb0" cyan
-        set -gx fish_color_escape "3e8fb0" cyan
-        set -gx fish_color_cwd "ea9a97" green
-        set -gx fish_color_cwd_root "ecebf0" red
+        set -gx fish_color_operator "9ccfd8" cyan
+        set -gx fish_color_escape "9ccfd8" cyan
+        set -gx fish_color_cwd "3e8fb0" green
+        set -gx fish_color_cwd_root "eb6f92" red
         set -gx fish_color_valid_path --underline
-        set -gx fish_color_autosuggestion "59546d" brblack
-        set -gx fish_color_user "ea9a97" brgreen
+        set -gx fish_color_autosuggestion "6e6a86" brblack
+        set -gx fish_color_user "3e8fb0" brgreen
         set -gx fish_color_host normal
         set -gx fish_color_cancel -r
         set -gx fish_pager_color_completion normal
-        set -gx fish_pager_color_description "f6c177" yellow
+        set -gx fish_pager_color_description "ea9a97" yellow
         set -gx fish_pager_color_prefix "e0def4" white --bold --underline
-        set -gx fish_pager_color_progress "d9d7e1" brwhite --background=cyan
+        set -gx fish_pager_color_progress "56526e" brwhite --background=cyan
     end
 
     __base16_fish_shell_set_background "23" "21" "36"
