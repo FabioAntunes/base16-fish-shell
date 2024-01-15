@@ -1,8 +1,8 @@
 # base16-fish-shell (https://github.com/FabioAntunes/base16-fish-shell)
 # Inspired by base16-shell (https://github.com/chriskempson/base16-shell)
-# Horizon Dark scheme by Michaël Ball (http://github.com/michael-ball/)
+# Horizon Terminal Dark scheme by Michaël Ball (http://github.com/michael-ball/)
 
-function base16-horizon-terminal-dark -d "base16 Horizon Dark theme"
+function base16-horizon-terminal-dark -d "base16 Horizon Terminal Dark theme"
     set options (fish_opt --short=t --long=test)
     argparse $options -- $argv
 

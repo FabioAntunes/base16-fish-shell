@@ -1,36 +1,36 @@
 # base16-fish-shell (https://github.com/FabioAntunes/base16-fish-shell)
 # Inspired by base16-shell (https://github.com/chriskempson/base16-shell)
-# Apprentice scheme by romainl
+# Everforest Dark Hard scheme by Oskar Liew (https://github.com/OskarLiew)
 
-function base16-apprentice -d "base16 Apprentice theme"
+function base16-everforest-dark-hard -d "base16 Everforest Dark Hard theme"
     set options (fish_opt --short=t --long=test)
     argparse $options -- $argv
 
     # colors
-    set color00 "26/26/26" # Base 00 - Black
-    set color01 "44/44/44" # Base 08 - Red
-    set color02 "ff/ff/af" # Base 0B - Green
-    set color03 "87/af/87" # Base 0A - Yellow
-    set color04 "87/87/af" # Base 0D - Blue
-    set color05 "5f/af/af" # Base 0E - Magenta
-    set color06 "87/af/d7" # Base 0C - Cyan
-    set color07 "5f/5f/87" # Base 05 - White
-    set color08 "87/87/5f" # Base 03 - Bright Black
+    set color00 "27/2e/33" # Base 00 - Black
+    set color01 "7f/bb/b3" # Base 08 - Red
+    set color02 "83/c0/92" # Base 0B - Green
+    set color03 "db/bc/7f" # Base 0A - Yellow
+    set color04 "a7/c0/80" # Base 0D - Blue
+    set color05 "e6/7e/80" # Base 0E - Magenta
+    set color06 "e6/98/75" # Base 0C - Cyan
+    set color07 "d3/c6/aa" # Base 05 - White
+    set color08 "85/92/89" # Base 03 - Bright Black
     set color09 $color01 # Base 08 - Bright Red
     set color10 $color02 # Base 0B - Bright Green
     set color11 $color03 # Base 0A - Bright Yellow
     set color12 $color04 # Base 0D - Bright Blue
     set color13 $color05 # Base 0E - Bright Magenta
     set color14 $color06 # Base 0C - Bright Cyan
-    set color15 "6c/6c/6c" # Base 07 - Bright White
-    set color16 "ff/87/00" # Base 09
-    set color17 "bc/bc/bc" # Base 0F
-    set color18 "af/5f/5f" # Base 01
-    set color19 "5f/87/5f" # Base 02
-    set color20 "5f/87/af" # Base 04
-    set color21 "5f/87/87" # Base 06
-    set color_foreground "5f/5f/87" # Base 05
-    set color_background "26/26/26" # Base 00
+    set color15 "fd/f6/e3" # Base 07 - Bright White
+    set color16 "d6/99/b6" # Base 09
+    set color17 "4c/37/43" # Base 0F
+    set color18 "2e/38/3c" # Base 01
+    set color19 "41/4b/50" # Base 02
+    set color20 "9d/a9/a0" # Base 04
+    set color21 "e4/e1/cd" # Base 06
+    set color_foreground "d3/c6/aa" # Base 05
+    set color_background "27/2e/33" # Base 00
 
     # 16 color space
     __put_template 0  $color00
@@ -61,13 +61,13 @@ function base16-apprentice -d "base16 Apprentice theme"
     # foreground / background / cursor color
     if test -n "$ITERM_SESSION_ID"
         # iTerm2 proprietary escape codes
-        __put_template_custom Pg 5f5f87 # foreground
-        __put_template_custom Ph 262626 # background
-        __put_template_custom Pi 5f5f87 # bold color
-        __put_template_custom Pj 5f875f # selection color
-        __put_template_custom Pk 5f5f87 # selected text color
-        __put_template_custom Pl 5f5f87 # cursor
-        __put_template_custom Pm 262626 # cursor text
+        __put_template_custom Pg d3c6aa # foreground
+        __put_template_custom Ph 272e33 # background
+        __put_template_custom Pi d3c6aa # bold color
+        __put_template_custom Pj 414b50 # selection color
+        __put_template_custom Pk d3c6aa # selected text color
+        __put_template_custom Pl d3c6aa # cursor
+        __put_template_custom Pm 272e33 # cursor text
 
     else
         __put_template_var 10 $color_foreground
@@ -82,35 +82,35 @@ function base16-apprentice -d "base16 Apprentice theme"
 
     if test -z $base16_fish_shell_disable_prompt_colors
         set -gx fish_color_normal normal
-        set -gx fish_color_command "8787af" blue
-        set -gx fish_color_quote "ffffaf" green
-        set -gx fish_color_redirection "87af87" yellow
-        set -gx fish_color_end "87afd7" cyan
-        set -gx fish_color_error "444444" red
-        set -gx fish_color_param "5f8787" cyan
-        set -gx fish_color_comment "87875f" brblack
+        set -gx fish_color_command "a7c080" blue
+        set -gx fish_color_quote "83c092" green
+        set -gx fish_color_redirection "dbbc7f" yellow
+        set -gx fish_color_end "e69875" cyan
+        set -gx fish_color_error "7fbbb3" red
+        set -gx fish_color_param "e4e1cd" cyan
+        set -gx fish_color_comment "859289" brblack
         set -gx fish_color_match --background=brblue
-        set -gx fish_color_selection "5f5f87" white --bold --background=brblack
-        set -gx fish_color_search_match "87af87" bryellow --background=brblack
+        set -gx fish_color_selection "d3c6aa" white --bold --background=brblack
+        set -gx fish_color_search_match "dbbc7f" bryellow --background=brblack
         set -gx fish_color_history_current --bold
-        set -gx fish_color_operator "87afd7" cyan
-        set -gx fish_color_escape "87afd7" cyan
-        set -gx fish_color_cwd "ffffaf" green
-        set -gx fish_color_cwd_root "444444" red
+        set -gx fish_color_operator "e69875" cyan
+        set -gx fish_color_escape "e69875" cyan
+        set -gx fish_color_cwd "83c092" green
+        set -gx fish_color_cwd_root "7fbbb3" red
         set -gx fish_color_valid_path --underline
-        set -gx fish_color_autosuggestion "87875f" brblack
-        set -gx fish_color_user "ffffaf" brgreen
+        set -gx fish_color_autosuggestion "859289" brblack
+        set -gx fish_color_user "83c092" brgreen
         set -gx fish_color_host normal
         set -gx fish_color_cancel -r
         set -gx fish_pager_color_completion normal
-        set -gx fish_pager_color_description "87af87" yellow
-        set -gx fish_pager_color_prefix "5f5f87" white --bold --underline
-        set -gx fish_pager_color_progress "6c6c6c" brwhite --background=cyan
+        set -gx fish_pager_color_description "dbbc7f" yellow
+        set -gx fish_pager_color_prefix "d3c6aa" white --bold --underline
+        set -gx fish_pager_color_progress "fdf6e3" brwhite --background=cyan
     end
 
-    __base16_fish_shell_set_background "26" "26" "26"
-    __base16_fish_shell_create_vimrc_background apprentice
-    set -U base16_fish_theme apprentice
+    __base16_fish_shell_set_background "27" "2e" "33"
+    __base16_fish_shell_create_vimrc_background everforest-dark-hard
+    set -U base16_fish_theme everforest-dark-hard
 
     if test -n "$_flag_t"
         set base16_colors_hex
