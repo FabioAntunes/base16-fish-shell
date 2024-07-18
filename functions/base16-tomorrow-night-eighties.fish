@@ -1,8 +1,8 @@
 # base16-fish-shell (https://github.com/FabioAntunes/base16-fish-shell)
 # Inspired by base16-shell (https://github.com/chriskempson/base16-shell)
-# Tomorrow Night scheme by Chris Kempson (http://chriskempson.com)
+# Tomorrow Night Eighties scheme by Chris Kempson (http://chriskempson.com)
 
-function base16-tomorrow-night-eighties -d "base16 Tomorrow Night theme"
+function base16-tomorrow-night-eighties -d "base16 Tomorrow Night Eighties theme"
     set options (fish_opt --short=t --long=test)
     argparse $options -- $argv
 
