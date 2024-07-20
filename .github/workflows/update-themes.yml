@@ -1,0 +1,39 @@
+name: Update themes
+
+on:
+  # trigger on template changes
+  push:
+    paths:
+      - templates/**
+  # trigger on every saturday at 00:00
+  schedule:
+    - cron: "0 0 * * 6"
+  # manual trigger
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          repository: tinted-theming/schemes
+          path: schemes
+
+      - name: Base16 Builder Go
+        uses: tinted-theming/base16-builder-go@v0.3.0
+        with:
+          path: schemes
+
+      - name: commit & push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -r schemes
+          git diff --quiet || (
+            git add . 
+            git commit -m "fix: update themes"
+            git push
+          )
