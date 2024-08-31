@@ -1,6 +1,6 @@
 # base16-fish-shell (https://github.com/FabioAntunes/base16-fish-shell)
 # Inspired by base16-shell (https://github.com/chriskempson/base16-shell)
-# Everforest Dark Hard scheme by Oskar Liew (https://github.com/OskarLiew)
+# Everforest Dark Hard scheme by Sainnhe Park (https://github.com/sainnhe)
 
 function base16-everforest-dark-hard -d "base16 Everforest Dark Hard theme"
     set options (fish_opt --short=t --long=test)
@@ -8,12 +8,12 @@ function base16-everforest-dark-hard -d "base16 Everforest Dark Hard theme"
 
     # colors
     set color00 "27/2e/33" # Base 00 - Black
-    set color01 "7f/bb/b3" # Base 08 - Red
-    set color02 "83/c0/92" # Base 0B - Green
+    set color01 "e6/7e/80" # Base 08 - Red
+    set color02 "a7/c0/80" # Base 0B - Green
     set color03 "db/bc/7f" # Base 0A - Yellow
-    set color04 "a7/c0/80" # Base 0D - Blue
-    set color05 "e6/7e/80" # Base 0E - Magenta
-    set color06 "e6/98/75" # Base 0C - Cyan
+    set color04 "7f/bb/b3" # Base 0D - Blue
+    set color05 "d6/99/b6" # Base 0E - Magenta
+    set color06 "83/c0/92" # Base 0C - Cyan
     set color07 "d3/c6/aa" # Base 05 - White
     set color08 "85/92/89" # Base 03 - Bright Black
     set color09 $color01 # Base 08 - Bright Red
@@ -22,13 +22,13 @@ function base16-everforest-dark-hard -d "base16 Everforest Dark Hard theme"
     set color12 $color04 # Base 0D - Bright Blue
     set color13 $color05 # Base 0E - Bright Magenta
     set color14 $color06 # Base 0C - Bright Cyan
-    set color15 "fd/f6/e3" # Base 07 - Bright White
-    set color16 "d6/99/b6" # Base 09
-    set color17 "4c/37/43" # Base 0F
+    set color15 "ff/fb/ef" # Base 07 - Bright White
+    set color16 "e6/98/75" # Base 09
+    set color17 "9d/a9/a0" # Base 0F
     set color18 "2e/38/3c" # Base 01
     set color19 "41/4b/50" # Base 02
     set color20 "9d/a9/a0" # Base 04
-    set color21 "e4/e1/cd" # Base 06
+    set color21 "ed/ea/da" # Base 06
     set color_foreground "d3/c6/aa" # Base 05
     set color_background "27/2e/33" # Base 00
 
@@ -82,30 +82,30 @@ function base16-everforest-dark-hard -d "base16 Everforest Dark Hard theme"
 
     if test -z $base16_fish_shell_disable_prompt_colors
         set -gx fish_color_normal normal
-        set -gx fish_color_command "a7c080" blue
-        set -gx fish_color_quote "83c092" green
+        set -gx fish_color_command "7fbbb3" blue
+        set -gx fish_color_quote "a7c080" green
         set -gx fish_color_redirection "dbbc7f" yellow
-        set -gx fish_color_end "e69875" cyan
-        set -gx fish_color_error "7fbbb3" red
-        set -gx fish_color_param "e4e1cd" cyan
+        set -gx fish_color_end "83c092" cyan
+        set -gx fish_color_error "e67e80" red
+        set -gx fish_color_param "edeada" cyan
         set -gx fish_color_comment "859289" brblack
         set -gx fish_color_match --background=brblue
         set -gx fish_color_selection "d3c6aa" white --bold --background=brblack
         set -gx fish_color_search_match "dbbc7f" bryellow --background=brblack
         set -gx fish_color_history_current --bold
-        set -gx fish_color_operator "e69875" cyan
-        set -gx fish_color_escape "e69875" cyan
-        set -gx fish_color_cwd "83c092" green
-        set -gx fish_color_cwd_root "7fbbb3" red
+        set -gx fish_color_operator "83c092" cyan
+        set -gx fish_color_escape "83c092" cyan
+        set -gx fish_color_cwd "a7c080" green
+        set -gx fish_color_cwd_root "e67e80" red
         set -gx fish_color_valid_path --underline
         set -gx fish_color_autosuggestion "859289" brblack
-        set -gx fish_color_user "83c092" brgreen
+        set -gx fish_color_user "a7c080" brgreen
         set -gx fish_color_host normal
         set -gx fish_color_cancel -r
         set -gx fish_pager_color_completion normal
         set -gx fish_pager_color_description "dbbc7f" yellow
         set -gx fish_pager_color_prefix "d3c6aa" white --bold --underline
-        set -gx fish_pager_color_progress "fdf6e3" brwhite --background=cyan
+        set -gx fish_pager_color_progress "fffbef" brwhite --background=cyan
     end
 
     __base16_fish_shell_set_background "27" "2e" "33"

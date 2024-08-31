@@ -1,36 +1,36 @@
 # base16-fish-shell (https://github.com/FabioAntunes/base16-fish-shell)
 # Inspired by base16-shell (https://github.com/chriskempson/base16-shell)
-# Dracula scheme by Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
+# Dracula scheme by Jamy Golden (http://github.com/JamyGolden), based on Dracula Theme (http://github.com/dracula)
 
 function base16-dracula -d "base16 Dracula theme"
     set options (fish_opt --short=t --long=test)
     argparse $options -- $argv
 
     # colors
-    set color00 "28/29/36" # Base 00 - Black
-    set color01 "ea/51/b2" # Base 08 - Red
-    set color02 "eb/ff/87" # Base 0B - Green
-    set color03 "00/f7/69" # Base 0A - Yellow
-    set color04 "62/d6/e8" # Base 0D - Blue
-    set color05 "b4/5b/cf" # Base 0E - Magenta
-    set color06 "a1/ef/e4" # Base 0C - Cyan
-    set color07 "e9/e9/f4" # Base 05 - White
-    set color08 "62/64/83" # Base 03 - Bright Black
+    set color00 "28/2a/36" # Base 00 - Black
+    set color01 "ff/55/55" # Base 08 - Red
+    set color02 "50/fa/7b" # Base 0B - Green
+    set color03 "f1/fa/8c" # Base 0A - Yellow
+    set color04 "80/bf/ff" # Base 0D - Blue
+    set color05 "ff/79/c6" # Base 0E - Magenta
+    set color06 "8b/e9/fd" # Base 0C - Cyan
+    set color07 "f8/f8/f2" # Base 05 - White
+    set color08 "62/72/a4" # Base 03 - Bright Black
     set color09 $color01 # Base 08 - Bright Red
     set color10 $color02 # Base 0B - Bright Green
     set color11 $color03 # Base 0A - Bright Yellow
     set color12 $color04 # Base 0D - Bright Blue
     set color13 $color05 # Base 0E - Bright Magenta
     set color14 $color06 # Base 0C - Bright Cyan
-    set color15 "f7/f7/fb" # Base 07 - Bright White
-    set color16 "b4/5b/cf" # Base 09
-    set color17 "00/f7/69" # Base 0F
-    set color18 "3a/3c/4e" # Base 01
-    set color19 "4d/4f/68" # Base 02
-    set color20 "62/d6/e8" # Base 04
-    set color21 "f1/f2/f8" # Base 06
-    set color_foreground "e9/e9/f4" # Base 05
-    set color_background "28/29/36" # Base 00
+    set color15 "ff/ff/ff" # Base 07 - Bright White
+    set color16 "ff/b8/6c" # Base 09
+    set color17 "bd/93/f9" # Base 0F
+    set color18 "36/34/47" # Base 01
+    set color19 "44/47/5a" # Base 02
+    set color20 "9e/a8/c7" # Base 04
+    set color21 "f0/f1/f4" # Base 06
+    set color_foreground "f8/f8/f2" # Base 05
+    set color_background "28/2a/36" # Base 00
 
     # 16 color space
     __put_template 0  $color00
@@ -61,13 +61,13 @@ function base16-dracula -d "base16 Dracula theme"
     # foreground / background / cursor color
     if test -n "$ITERM_SESSION_ID"
         # iTerm2 proprietary escape codes
-        __put_template_custom Pg e9e9f4 # foreground
-        __put_template_custom Ph 282936 # background
-        __put_template_custom Pi e9e9f4 # bold color
-        __put_template_custom Pj 4d4f68 # selection color
-        __put_template_custom Pk e9e9f4 # selected text color
-        __put_template_custom Pl e9e9f4 # cursor
-        __put_template_custom Pm 282936 # cursor text
+        __put_template_custom Pg f8f8f2 # foreground
+        __put_template_custom Ph 282a36 # background
+        __put_template_custom Pi f8f8f2 # bold color
+        __put_template_custom Pj 44475a # selection color
+        __put_template_custom Pk f8f8f2 # selected text color
+        __put_template_custom Pl f8f8f2 # cursor
+        __put_template_custom Pm 282a36 # cursor text
 
     else
         __put_template_var 10 $color_foreground
@@ -82,33 +82,33 @@ function base16-dracula -d "base16 Dracula theme"
 
     if test -z $base16_fish_shell_disable_prompt_colors
         set -gx fish_color_normal normal
-        set -gx fish_color_command "62d6e8" blue
-        set -gx fish_color_quote "ebff87" green
-        set -gx fish_color_redirection "00f769" yellow
-        set -gx fish_color_end "a1efe4" cyan
-        set -gx fish_color_error "ea51b2" red
-        set -gx fish_color_param "f1f2f8" cyan
-        set -gx fish_color_comment "626483" brblack
+        set -gx fish_color_command "80bfff" blue
+        set -gx fish_color_quote "50fa7b" green
+        set -gx fish_color_redirection "f1fa8c" yellow
+        set -gx fish_color_end "8be9fd" cyan
+        set -gx fish_color_error "ff5555" red
+        set -gx fish_color_param "f0f1f4" cyan
+        set -gx fish_color_comment "6272a4" brblack
         set -gx fish_color_match --background=brblue
-        set -gx fish_color_selection "e9e9f4" white --bold --background=brblack
-        set -gx fish_color_search_match "00f769" bryellow --background=brblack
+        set -gx fish_color_selection "f8f8f2" white --bold --background=brblack
+        set -gx fish_color_search_match "f1fa8c" bryellow --background=brblack
         set -gx fish_color_history_current --bold
-        set -gx fish_color_operator "a1efe4" cyan
-        set -gx fish_color_escape "a1efe4" cyan
-        set -gx fish_color_cwd "ebff87" green
-        set -gx fish_color_cwd_root "ea51b2" red
+        set -gx fish_color_operator "8be9fd" cyan
+        set -gx fish_color_escape "8be9fd" cyan
+        set -gx fish_color_cwd "50fa7b" green
+        set -gx fish_color_cwd_root "ff5555" red
         set -gx fish_color_valid_path --underline
-        set -gx fish_color_autosuggestion "626483" brblack
-        set -gx fish_color_user "ebff87" brgreen
+        set -gx fish_color_autosuggestion "6272a4" brblack
+        set -gx fish_color_user "50fa7b" brgreen
         set -gx fish_color_host normal
         set -gx fish_color_cancel -r
         set -gx fish_pager_color_completion normal
-        set -gx fish_pager_color_description "00f769" yellow
-        set -gx fish_pager_color_prefix "e9e9f4" white --bold --underline
-        set -gx fish_pager_color_progress "f7f7fb" brwhite --background=cyan
+        set -gx fish_pager_color_description "f1fa8c" yellow
+        set -gx fish_pager_color_prefix "f8f8f2" white --bold --underline
+        set -gx fish_pager_color_progress "ffffff" brwhite --background=cyan
     end
 
-    __base16_fish_shell_set_background "28" "29" "36"
+    __base16_fish_shell_set_background "28" "2a" "36"
     __base16_fish_shell_create_vimrc_background dracula
     set -U base16_fish_theme dracula
 

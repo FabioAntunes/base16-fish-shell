@@ -1,6 +1,6 @@
 # base16-fish-shell (https://github.com/FabioAntunes/base16-fish-shell)
 # Inspired by base16-shell (https://github.com/chriskempson/base16-shell)
-# Shades of Purple scheme by Iolar Demartini Junior (http://github.com/demartini) based on Shades of Purple Theme (https://github.com/ahmadawais/shades-of-purple-vscode).
+# Shades of Purple scheme by Iolar Demartini Junior (http://github.com/demartini), based on Shades of Purple Theme (https://github.com/ahmadawais/shades-of-purple-vscode)
 
 function base16-shades-of-purple -d "base16 Shades of Purple theme"
     set options (fish_opt --short=t --long=test)

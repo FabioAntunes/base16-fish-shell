@@ -1,36 +1,36 @@
 # base16-fish-shell (https://github.com/FabioAntunes/base16-fish-shell)
 # Inspired by base16-shell (https://github.com/chriskempson/base16-shell)
-# Snazzy scheme by Chawye Hsu (https://github.com/chawyehsu), based on Hyper Snazzy Theme (https://github.com/sindresorhus/hyper-snazzy)
+# Terracotta scheme by Alexander Rossell Hayes (https://github.com/rossellhayes)
 
-function base16-snazzy -d "base16 Snazzy theme"
+function base16-terracotta -d "base16 Terracotta theme"
     set options (fish_opt --short=t --long=test)
     argparse $options -- $argv
 
     # colors
-    set color00 "28/2a/36" # Base 00 - Black
-    set color01 "ff/5c/57" # Base 08 - Red
-    set color02 "5a/f7/8e" # Base 0B - Green
-    set color03 "f3/f9/9d" # Base 0A - Yellow
-    set color04 "57/c7/ff" # Base 0D - Blue
-    set color05 "ff/6a/c1" # Base 0E - Magenta
-    set color06 "9a/ed/fe" # Base 0C - Cyan
-    set color07 "e2/e4/e5" # Base 05 - White
-    set color08 "78/78/7e" # Base 03 - Bright Black
+    set color00 "ef/ea/e8" # Base 00 - Black
+    set color01 "a7/50/45" # Base 08 - Red
+    set color02 "7a/89/4a" # Base 0B - Green
+    set color03 "ce/94/3e" # Base 0A - Yellow
+    set color04 "62/55/74" # Base 0D - Blue
+    set color05 "8d/59/68" # Base 0E - Magenta
+    set color06 "84/7f/9e" # Base 0C - Cyan
+    set color07 "47/37/31" # Base 05 - White
+    set color08 "c0/ac/a4" # Base 03 - Bright Black
     set color09 $color01 # Base 08 - Bright Red
     set color10 $color02 # Base 0B - Bright Green
     set color11 $color03 # Base 0A - Bright Yellow
     set color12 $color04 # Base 0D - Bright Blue
     set color13 $color05 # Base 0E - Bright Magenta
     set color14 $color06 # Base 0C - Bright Cyan
-    set color15 "f1/f1/f0" # Base 07 - Bright White
-    set color16 "ff/9f/43" # Base 09
-    set color17 "b2/64/3c" # Base 0F
-    set color18 "34/35/3e" # Base 01
-    set color19 "43/45/4f" # Base 02
-    set color20 "a5/a5/a9" # Base 04
-    set color21 "ef/f0/eb" # Base 06
-    set color_foreground "e2/e4/e5" # Base 05
-    set color_background "28/2a/36" # Base 00
+    set color15 "24/1c/19" # Base 07 - Bright White
+    set color16 "bd/69/42" # Base 09
+    set color17 "b0/71/58" # Base 0F
+    set color18 "df/d6/d1" # Base 01
+    set color19 "d0/c1/bb" # Base 02
+    set color20 "59/45/3d" # Base 04
+    set color21 "35/2a/25" # Base 06
+    set color_foreground "47/37/31" # Base 05
+    set color_background "ef/ea/e8" # Base 00
 
     # 16 color space
     __put_template 0  $color00
@@ -61,13 +61,13 @@ function base16-snazzy -d "base16 Snazzy theme"
     # foreground / background / cursor color
     if test -n "$ITERM_SESSION_ID"
         # iTerm2 proprietary escape codes
-        __put_template_custom Pg e2e4e5 # foreground
-        __put_template_custom Ph 282a36 # background
-        __put_template_custom Pi e2e4e5 # bold color
-        __put_template_custom Pj 43454f # selection color
-        __put_template_custom Pk e2e4e5 # selected text color
-        __put_template_custom Pl e2e4e5 # cursor
-        __put_template_custom Pm 282a36 # cursor text
+        __put_template_custom Pg 473731 # foreground
+        __put_template_custom Ph efeae8 # background
+        __put_template_custom Pi 473731 # bold color
+        __put_template_custom Pj d0c1bb # selection color
+        __put_template_custom Pk 473731 # selected text color
+        __put_template_custom Pl 473731 # cursor
+        __put_template_custom Pm efeae8 # cursor text
 
     else
         __put_template_var 10 $color_foreground
@@ -82,35 +82,35 @@ function base16-snazzy -d "base16 Snazzy theme"
 
     if test -z $base16_fish_shell_disable_prompt_colors
         set -gx fish_color_normal normal
-        set -gx fish_color_command "57c7ff" blue
-        set -gx fish_color_quote "5af78e" green
-        set -gx fish_color_redirection "f3f99d" yellow
-        set -gx fish_color_end "9aedfe" cyan
-        set -gx fish_color_error "ff5c57" red
-        set -gx fish_color_param "eff0eb" cyan
-        set -gx fish_color_comment "78787e" brblack
+        set -gx fish_color_command "625574" blue
+        set -gx fish_color_quote "7a894a" green
+        set -gx fish_color_redirection "ce943e" yellow
+        set -gx fish_color_end "847f9e" cyan
+        set -gx fish_color_error "a75045" red
+        set -gx fish_color_param "352a25" cyan
+        set -gx fish_color_comment "c0aca4" brblack
         set -gx fish_color_match --background=brblue
-        set -gx fish_color_selection "e2e4e5" white --bold --background=brblack
-        set -gx fish_color_search_match "f3f99d" bryellow --background=brblack
+        set -gx fish_color_selection "473731" white --bold --background=brblack
+        set -gx fish_color_search_match "ce943e" bryellow --background=brblack
         set -gx fish_color_history_current --bold
-        set -gx fish_color_operator "9aedfe" cyan
-        set -gx fish_color_escape "9aedfe" cyan
-        set -gx fish_color_cwd "5af78e" green
-        set -gx fish_color_cwd_root "ff5c57" red
+        set -gx fish_color_operator "847f9e" cyan
+        set -gx fish_color_escape "847f9e" cyan
+        set -gx fish_color_cwd "7a894a" green
+        set -gx fish_color_cwd_root "a75045" red
         set -gx fish_color_valid_path --underline
-        set -gx fish_color_autosuggestion "78787e" brblack
-        set -gx fish_color_user "5af78e" brgreen
+        set -gx fish_color_autosuggestion "c0aca4" brblack
+        set -gx fish_color_user "7a894a" brgreen
         set -gx fish_color_host normal
         set -gx fish_color_cancel -r
         set -gx fish_pager_color_completion normal
-        set -gx fish_pager_color_description "f3f99d" yellow
-        set -gx fish_pager_color_prefix "e2e4e5" white --bold --underline
-        set -gx fish_pager_color_progress "f1f1f0" brwhite --background=cyan
+        set -gx fish_pager_color_description "ce943e" yellow
+        set -gx fish_pager_color_prefix "473731" white --bold --underline
+        set -gx fish_pager_color_progress "241c19" brwhite --background=cyan
     end
 
-    __base16_fish_shell_set_background "28" "2a" "36"
-    __base16_fish_shell_create_vimrc_background snazzy
-    set -U base16_fish_theme snazzy
+    __base16_fish_shell_set_background "ef" "ea" "e8"
+    __base16_fish_shell_create_vimrc_background terracotta
+    set -U base16_fish_theme terracotta
 
     if test -n "$_flag_t"
         set base16_colors_hex
