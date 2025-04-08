@@ -1,3 +1,9 @@
+# DEPRECATED
+
+There are multiple projects out there that provide better functionality and are under active development.
+
+Have a look at [tinted-theming](https://github.com/tinted-theming) and [mini.base16](https://github.com/echasnovski/mini.base16)
+
 # Base16 Fish Shell 
 See the [Base16 repository](https://github.com/chriskempson/base16) for more information.  
 These scripts were built with [Base16 Builder Go](https://github.com/belak/base16-builder-go).
